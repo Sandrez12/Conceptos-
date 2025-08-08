@@ -1,0 +1,37 @@
+{
+    "titulo": "Conceptos de Buenas Prácticas en Programación",
+    "descripcion": "Ejemplos y explicaciones sobre los principios SOLID, cohesión, acoplamiento e inyección de dependencias usando Laravel.",
+    "secciones": [
+        {
+            "id": "inicio",
+            "titulo": "Inicio",
+            "contenido": "Bienvenido a esta página educativa sobre buenas prácticas en desarrollo de software, con ejemplos prácticos en Laravel."
+        },
+        {
+            "id": "solid",
+            "titulo": "Principios SOLID",
+            "contenido": "Los principios SOLID ayudan a escribir código más mantenible, escalable y fácil de entender.",
+            "ejemplo": "Aquí pondremos un ejemplo de código Laravel aplicando SRP, OCP, LSP, ISP y DIP."
+        },
+        {
+            "id": "cohesion",
+            "titulo": "Cohesión",
+            "contenido": "La cohesión mide el grado en que los elementos de un módulo están relacionados. Una alta cohesión significa que el módulo se centra en una única tarea."
+        },
+        {
+            "id": "acoplamiento",
+            "titulo": "Acoplamiento",
+            "contenido": "El acoplamiento mide el grado de dependencia entre módulos. Un bajo acoplamiento facilita el mantenimiento y la reutilización del código."
+        },
+        {
+            "id": "inyeccion",
+            "titulo": "Inyección de Dependencias",
+            "contenido": "La inyección de dependencias consiste en pasar los objetos que una clase necesita desde fuera, en lugar de crearlos dentro de la clase."
+        },
+        {
+            "id": "bibliografia",
+            "titulo": "Bibliografía",
+            "contenido": "1. Robert C. Martin, 'Clean Architecture'.\n2. Laravel Documentation.\n3. SOLID Principles - Dev.to.\n4. Medium - Cohesion and Coupling."
+        }
+    ]
+}
