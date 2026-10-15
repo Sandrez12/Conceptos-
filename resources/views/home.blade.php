@@ -3,36 +3,41 @@
 @section('title', 'Inicio')
 
 @section('content')
-<div class="text-center mb-5">
-    <h1 class="fw-bold">Conceptos de Buenas Prácticas</h1>
-    <p class="text-white-50">Aprende SOLID, cohesión, acoplamiento e inyección de dependencias con ejemplos en Laravel</p>
-</div>
+<section class="hero">
+    <div class="wrap">
+        <p class="eyebrow">Buenas prácticas de programación</p>
+        <h1>Escribe código que <span>cambie sin romperse</span></h1>
+        <p class="lead">SOLID, cohesión, acoplamiento e inyección de dependencias explicados con ejemplos “antes y después” en PHP y Laravel.</p>
+        <div class="actions">
+            <a class="btn primary" href="{{ route('solid') }}">Empezar con SOLID</a>
+            <a class="btn" href="{{ route('bibliografia') }}">Ver bibliografía</a>
+        </div>
+    </div>
+</section>
 
-<div class="row g-4">
-    <div class="col-md-4">
-        <div class="glass-card h-100 d-flex flex-column">
-            <h4>Principios SOLID</h4>
-            <p class="flex-grow-1">Los cinco principios clave para un código limpio y mantenible.</p>
-            <a href="{{ route('solid') }}" class="btn btn-light mt-auto">Ver más</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="glass-card h-100 d-flex flex-column">
-            <h4>Cohesión y Acoplamiento</h4>
-            <p class="flex-grow-1">Mejora la organización interna y reduce dependencias.</p>
-            <a href="{{ route('cohesion') }}" class="btn btn-light mt-auto">Ver más</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="glass-card h-100 d-flex flex-column">
-            <h4>Inyección de Dependencias</h4>
-            <p class="flex-grow-1">Diseña código flexible, escalable y fácil de testear.</p>
-            <a href="{{ route('inyeccion') }}" class="btn btn-light mt-auto">Ver más</a>
-        </div>
-    </div>
-</div>
+<section class="wrap topics" aria-label="Temas">
+    @foreach ($temas as $clave => $tema)
+        <a class="topic" href="{{ route($tema['ruta']) }}">
+            <span class="topic-num">0{{ $loop->iteration }}</span>
+            <h2>{{ $tema['etiqueta'] }}</h2>
+            <p>{{ $tema['intro'] }}</p>
+            <span class="topic-meta">{{ $tema['total'] }} {{ $tema['total'] === 1 ? 'tema' : 'temas' }} · Leer →</span>
+        </a>
+    @endforeach
+</section>
 
-<div class="text-center mt-5">
-    <a href="{{ route('bibliografia') }}" class="btn btn-outline-light btn-lg">Ver Bibliografía</a>
-</div>
+<section class="wrap pillars" aria-label="Cómo está organizado">
+    <div>
+        <h3>Antes y después</h3>
+        <p>Cada concepto muestra primero el problema en código real y luego la versión mejorada.</p>
+    </div>
+    <div>
+        <h3>Señales de alerta</h3>
+        <p>Aprende a reconocer cuándo un diseño está pidiendo ayuda, antes de que sea tarde.</p>
+    </div>
+    <div>
+        <h3>Listo para Laravel</h3>
+        <p>Los ejemplos usan el contenedor de servicios, eventos y repositorios de Laravel.</p>
+    </div>
+</section>
 @endsection

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist
+      - run: cp .env.example .env && php artisan key:generate
+      - run: vendor/bin/pint --test
+      - run: php artisan test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t conceptos .
+      - name: La imagen arranca y responde
+        run: |
+          docker run -d --name app -p 8080:80 conceptos
+          for i in $(seq 1 20); do
+            curl -fs http://localhost:8080/up && break
+            sleep 2
+          done
+          curl -fs http://localhost:8080/ | grep -q "Escribe código"
+          curl -fs http://localhost:8080/solid | grep -q "Responsabilidad"
+          docker logs app

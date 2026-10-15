@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: conceptos
+    runtime: docker
+    plan: free
+    healthCheckPath: /up
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_LOCALE
+        value: es

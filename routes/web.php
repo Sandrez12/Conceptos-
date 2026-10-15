@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaginaController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PaginaController::class, 'index'])->name('home');
-Route::get('/solid', [PaginaController::class, 'solid'])->name('solid');
-Route::get('/cohesion-acoplamiento', [PaginaController::class, 'cohesionAcoplamiento'])->name('cohesion');
-Route::get('/inyeccion-dependencias', [PaginaController::class, 'inyeccionDependencias'])->name('inyeccion');
-Route::get('/bibliografia', [PaginaController::class, 'bibliografia'])->name('bibliografia');
+Route::controller(PaginaController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/solid', 'solid')->name('solid');
+    Route::get('/cohesion-acoplamiento', 'cohesionAcoplamiento')->name('cohesion');
+    Route::get('/inyeccion-dependencias', 'inyeccionDependencias')->name('inyeccion');
+    Route::get('/bibliografia', 'bibliografia')->name('bibliografia');
+});
